@@ -20,7 +20,7 @@ export default class Planetas {
         this.planetas = this.planetas.filter(planeta=> planeta.id != id)
     }
 
-    update(id, nome, natureza){
+    update(id, nome, natureza, data){
         const planeta = this.getPlanetaById(id);
 
         if(planeta){

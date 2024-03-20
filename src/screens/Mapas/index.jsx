@@ -30,8 +30,7 @@ export default function Mapas() {
 
   const showDatepicker = () => {
     showMode("date");
-    console.log(date);
-    console.log(planetas);
+ 
   };
 
   const createPlaneta = () => {
@@ -49,6 +48,10 @@ export default function Mapas() {
     planetaLista.remove(id);
     setPlanetas(planetaLista.getAll());
   }
+   const editar = (id) =>{
+      planetaLista.update(id, nome, natureza, date)
+      setPlanetas(planetaLista.getPlanetaById(id))
+   }
   return (
     <View>
       <Text>Mapas</Text>
@@ -95,6 +98,7 @@ export default function Mapas() {
                 {planeta.data.getFullYear()}
               </Text>
               <TouchableOpacity onPress={() => deletePlaneta(planeta.id)}><Text>deletar</Text></TouchableOpacity>
+              <TouchableOpacity onPress={() => editar(planeta.id)}><Text>Editar</Text></TouchableOpacity>
             </Text>
           ))
         ) : (
