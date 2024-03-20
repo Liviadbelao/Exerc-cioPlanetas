@@ -40,10 +40,15 @@ export default function Mapas() {
 
     planetaLista.addPlaneta(novoPlaneta);
     setPlanetas(planetaLista.getAll());
-setNatureza('')
-setNome('')
+    setNatureza("");
+    setNome("");
     return novoPlaneta;
   };
+
+  const deletePlaneta = (id) => {
+    planetaLista.remove(id);
+    setPlanetas(planetaLista.getAll());
+  }
   return (
     <View>
       <Text>Mapas</Text>
@@ -79,14 +84,18 @@ setNome('')
       <View>
         {planetas.length > 0 ? (
           planetas.map((planeta) => (
-            <View
+            <Text
               key={planeta.id}
-              /* onPress={() => navigation.navigate("Mapas", { data: planeta })} */
+             /*  onPress={() => navigation.navigate("Profile", { data: planeta })} */
             >
               <Text>{planeta.nome}</Text>
               <Text>{planeta.natureza}</Text>
-              <Text>{planeta.data.getDate()}/{planeta.data.getMonth()}/{planeta.data.getFullYear()}</Text>
-            </View>
+              <Text>
+                {planeta.data.getDate()}/{planeta.data.getMonth()}/
+                {planeta.data.getFullYear()}
+              </Text>
+              <TouchableOpacity onPress={() => deletePlaneta(planeta.id)}><Text>deletar</Text></TouchableOpacity>
+            </Text>
           ))
         ) : (
           <Text>Não há usuários cadastrados</Text>
