@@ -1,15 +1,20 @@
-import { View, Text, TouchableOpacity, TextInput, DateInput } from "react-native";
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import styles from "./styles";
+import Planeta from "../../models/Planeta";
+import Planetas from "../../models/Planetas";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
+
+const planetaLista = new Planetas();
+
 export default function Mapas() {
-  const [task, setTask] = useState("");
-  const [populacao, setPopulacao] = useState("");
- 
-  const [tasks, setTasks] = useState([]);
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState('date');
+  const [nome, setNome] = useState("");
+  const [natureza, setNatureza] = useState("");
+
+  const [planetas, setPlanetas] = useState([]);
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
@@ -24,48 +29,69 @@ export default function Mapas() {
   };
 
   const showDatepicker = () => {
-    showMode('date');
-  };
-  const addTask = () => {
-    if (task.trim().length > 0) {
-      setTasks([...tasks, { id: Math.random().toNumber(), value: date }]);
-      setTask("");
-  
-      setPopulacao("")
-    }
+    showMode("date");
+    console.log(date);
+    console.log(planetas);
   };
 
+  const createPlaneta = () => {
+    let idnew = Math.floor(Math.random() * 999999);
+    const novoPlaneta = new Planeta(idnew, nome, natureza, date);
+
+    planetaLista.addPlaneta(novoPlaneta);
+    setPlanetas(planetaLista.getAll());
+setNatureza('')
+setNome('')
+    return novoPlaneta;
+  };
   return (
-    
     <View>
       <Text>Mapas</Text>
       <View>
         <TextInput
           placeholder="Digite o nome do Planeta"
-          onChangeText={setTask}
-          value={task}
+          onChangeText={setNome}
+          value={nome}
         />
         <TextInput
           placeholder="Digite a quantidade de população"
-          onChangeText={setPopulacao}
-          keyboardType="numeric"
-          value={populacao}
+          onChangeText={setNatureza}
+          value={natureza}
         />
-     <TouchableOpacity onPress={showDatepicker}><Text>Escolha a data</Text></TouchableOpacity>
-     {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          onChange={onChange}
-        />
-      )}
-        <TouchableOpacity onPress={addTask}>
+        <TouchableOpacity onPress={showDatepicker}>
+          <Text>Escolha a data</Text>
+        </TouchableOpacity>
+
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            onChange={onChange}
+          />
+        )}
+        <TouchableOpacity onPress={createPlaneta}>
           <Text>Adicionar</Text>
         </TouchableOpacity>
       </View>
-   
+      {/* renderizendo */}
+      <View>
+        {planetas.length > 0 ? (
+          planetas.map((planeta) => (
+            <View
+              key={planeta.id}
+              /* onPress={() => navigation.navigate("Mapas", { data: planeta })} */
+            >
+              <Text>{planeta.nome}</Text>
+              <Text>{planeta.natureza}</Text>
+              <Text>{planeta.data.getDate()}/{planeta.data.getMonth()}/{planeta.data.getFullYear()}</Text>
+            </View>
+          ))
+        ) : (
+          <Text>Não há usuários cadastrados</Text>
+        )}
+      </View>
       <StatusBar />
     </View>
   );
