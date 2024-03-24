@@ -20,7 +20,7 @@
         this.planetas = this.planetas.filter(planeta=> planeta.id !== id)
     }
 
-    update(id, nome, natureza, data, populacao, galaxia, sisSolar, coordenadas, governante, titulo){
+    update(id, nome, natureza, data, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria){
         const planeta = this.getPlanetaById(id);
 
         if(planeta){
@@ -30,16 +30,17 @@
             planeta.populacao = populacao;
             planeta.galaxia = galaxia;
             planeta.sisSolar = sisSolar;
-            
             planeta.coordenadas = coordenadas;
             planeta.governante = governante;
             planeta.titulo = titulo;
+            planeta.corPrimaria = corPrimaria;
+            planeta.corSecundaria = corSecundaria;
         }
         return planeta;
     }
 }
 const listaPlanetas = new Planetas();
-const newPlaneta = new Planeta(mapas.nome, mapas.natureza, mapas.data, mapas.populacao, mapas.galaxia, mapas.sisSolar, mapas.coordenadas, mapas.governante, mapas.titulo);
+const newPlaneta = new Planeta(mapas.nome, mapas.natureza, mapas.data, mapas.populacao, mapas.galaxia, mapas.sisSolar, mapas.coordenadas, mapas.governante, mapas.titulo, mapas.corPrimaria, mapas.corSecundaria);
 listaPlanetas.addPlaneta(newPlaneta);
 
 export default listaPlanetas;

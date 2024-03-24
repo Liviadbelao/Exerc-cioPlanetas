@@ -9,6 +9,8 @@ export const mapas =
     sisSolar: "sol",
     coordenadas: "122-22-2",
     governante: "Livia",
-    titulo: "presidente"
+    titulo: "presidente",
+    corPrimaria:"#90EE90",
+    corSecundaria:"#f3f3"
 }
 

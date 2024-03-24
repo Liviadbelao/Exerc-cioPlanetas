@@ -28,7 +28,7 @@ export default function Mapas() {
           {allPlanetas.length > 0 ? (
             <View>
               {allPlanetas.map((planeta) => (
-                <View style={styles.box} key={planeta.id}>
+              <View style={{ backgroundColor: planeta.corPrimaria, padding:10, borderRadius:10, marginTop:10 }} key={planeta.id}>
                   <Text style={styles.text}>{planeta.nome}</Text>
                   <TouchableOpacity
                   style={styles.button}

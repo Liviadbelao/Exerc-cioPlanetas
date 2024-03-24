@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     box:{
         alignItems:"center",
         marginTop:20,
-        backgroundColor:'#90EE90',
         padding:10,
         borderRadius:10,
     },

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
        alignItems:"center"
     },
     textBox:{
-        backgroundColor:"#f3f3",
+      
         padding:10,
         borderRadius: 10,
     },

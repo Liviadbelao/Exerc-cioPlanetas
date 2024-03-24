@@ -1,8 +1,11 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
-import DateTimePicker from "@react-native-community/datetimepicker";
+import { ColorPicker } from "react-native-color-picker";
+
+import Slider from "@react-native-community/slider";
+import DateTimePicker from "@react-native-community/datetimepicker";;
 import styles from './styles';
 import Title from "../../components/Title";
 
@@ -10,6 +13,7 @@ import listaPlanetas from '../../models/Planeta/Planetas';
 import Planeta from "../../models/Planeta/Planeta";
 
 
+const image = '../../../assets/download (3).jpg';
 export default function Form({ route }) {
   /* navegação */
   let { planeta, edit } = route.params;
@@ -28,6 +32,9 @@ export default function Form({ route }) {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
+  /* color input */
+  const [corPrimaria, setCorPrimaria] = useState("#000000");
+  const [corSecundaria, setCorSecundaria] = useState("#000000");
   /* navegação */
   const navigation = useNavigation();
   /* mensagens */
@@ -65,7 +72,7 @@ export default function Form({ route }) {
 
   const handleUserAction = () => {
     if (isUpdate) {
-      listaPlanetas.update(planeta.id, nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo);
+      listaPlanetas.update(planeta.id, nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria);
       clearInputs();
     } else {
       if (nome == '' || natureza == '' || populacao == '' || galaxia ==''|| sisSolar==''|| coordenadas==''|| governante==''|| titulo=='') {
@@ -74,7 +81,7 @@ export default function Form({ route }) {
       } else {
         setMsgErro(false)
         setMsg(true)
-        const newPlaneta = new Planeta(nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo); // Criando novo planeta com os dados corretos
+        const newPlaneta = new Planeta(nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria); // Criando novo planeta com os dados corretos
         listaPlanetas.addPlaneta(newPlaneta)
         clearInputs()
         navigation.navigate("Mapas");
@@ -85,6 +92,78 @@ export default function Form({ route }) {
 
   };
 
+  // Função de conversão de HSV para RGB para conseguir deixar a cor do icon certa
+  function hsvToRgb(h, s, v) {
+    let r, g, b, i, f, p, q, t;
+    if (s === 0) {
+      r = g = b = v;
+      return [r, g, b];
+    }
+    h /= 60;
+    i = Math.floor(h);
+    f = h - i;
+    p = v * (1 - s);
+    q = v * (1 - s * f);
+    t = v * (1 - s * (1 - f));
+    switch (i) {
+      case 0:
+        r = v;
+        g = t;
+        b = p;
+        break;
+      case 1:
+        r = q;
+        g = v;
+        b = p;
+        break;
+      case 2:
+        r = p;
+        g = v;
+        b = t;
+        break;
+      case 3:
+        r = p;
+        g = q;
+        b = v;
+        break;
+      case 4:
+        r = t;
+        g = p;
+        b = v;
+        break;
+      default:
+        r = v;
+        g = p;
+        b = q;
+    }
+    return [r * 255, g * 255, b * 255];
+  }
+
+  //Transformando o valor da cor primária de RGB para Hexadecimal para poder usar
+  const onColorChangePrimaryColor = (color) => {
+    const [r, g, b] = hsvToRgb(color.h, color.s, color.v);
+
+    const hexColor = `#${Math.round(r)
+      .toString(16)
+      .padStart(2, "0")}${Math.round(g)
+      .toString(16)
+      .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
+
+    setCorPrimaria(hexColor);
+  };
+
+  //Transformando o valor da cor secundária de RGB para Hexadecimal para poder usar
+  const onColorChangeSecundColor = (color) => {
+    const [r, g, b] = hsvToRgb(color.h, color.s, color.v);
+
+    const hexColor = `#${Math.round(r)
+      .toString(16)
+      .padStart(2, "0")}${Math.round(g)
+      .toString(16)
+      .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
+
+    setCorSecundaria(hexColor);
+  };
 
   const clearInputs = () => {
     setIsUpdate(false);
@@ -95,9 +174,10 @@ export default function Form({ route }) {
   };
 
   return (
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
     <View style={styles.container}>
       <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
-      <View>
+      <View style={styles.inputBox}>
         <TextInput
           style={styles.input}
           placeholder="Digite o nome do Planeta"
@@ -167,12 +247,21 @@ export default function Form({ route }) {
             onChange={onChange}
           />
         )}
-        <TouchableOpacity onPress={handleUserAction}>
-          <Text>Adicionar</Text>
-        </TouchableOpacity>
+     
+     <ColorPicker
+        onColorChange={onColorChangePrimaryColor}
+        sliderComponent={Slider}
+   style={styles.cor}
+      />
+
+      <ColorPicker
+        onColorChange={onColorChangeSecundColor}
+        sliderComponent={Slider}
+        style={styles.cor}
+      />
       </View>
 
-      <TouchableOpacity onPress={handleUserAction}>
+      <TouchableOpacity style={styles.button} onPress={handleUserAction}>
         <Text>{isUpdate ? "Salvar Alterações" : "Criar Usuário"}</Text>
       </TouchableOpacity>
       {
@@ -185,5 +274,6 @@ export default function Form({ route }) {
         </TouchableOpacity>
       )}
     </View>
+    </ImageBackground>
   );
 }

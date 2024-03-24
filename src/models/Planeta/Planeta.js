@@ -1,7 +1,7 @@
 
 
 export default class Planeta {
-    constructor(nome, natureza, data, populacao, galaxia, sisSolar, coordenadas, governante, titulo) {
+    constructor(nome, natureza, data, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria) {
 
         this.id = this.gerarId();
         this.nome = nome;
@@ -13,6 +13,8 @@ export default class Planeta {
         this.coordenadas = coordenadas;
         this.governante = governante;
         this.titulo = titulo;
+        this.corPrimaria = corPrimaria;
+        this.corSecundaria = corSecundaria;
         
     }
     gerarId() {

@@ -27,7 +27,7 @@ export default function Profile({ route }) {
         <Text>Selecione um usuário para exibir seus detalhes</Text>
       )}
 
-      <View style={styles.textBox}>
+      <View style={{ backgroundColor: data.corSecundaria, padding:10, borderRadius:10, marginTop:10 }}>
         <Text style={styles.text}>Detalhes do Planeta:</Text>
         <Text style={styles.text}>Nome: {data.nome}</Text>
         <Text style={styles.text}>Natureza: {data.natureza}</Text>
