@@ -24,12 +24,12 @@ const TabRoutes = () => {
             <Feather
               name="home"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#A020F0" : "#131313"}
             />
           ),
           tabBarLabel: "Inicial",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
+          tabBarActiveTintColor: "#A020F0",
+          tabBarInactiveTintColor: "#131313",
         }} />
       <Tab.Screen name="Form" component={Form}  initialParams={{ planeta: null, edit: false }}
          options={{
@@ -37,12 +37,12 @@ const TabRoutes = () => {
             <Feather
               name="list"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#A020F0" : "#131313"}
             />
           ),
           tabBarLabel: "Cadastro",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
+          tabBarActiveTintColor: "#A020F0",
+          tabBarInactiveTintColor: "#131313",
         }} />
       <Tab.Screen name="Mapas" component={Mapas} initialParams={{ mapas1 }}
        options={{
@@ -50,12 +50,12 @@ const TabRoutes = () => {
           <Feather
             name="list"
             size={24}
-            color={focused ? "#131313" : "#D6D6D6"}
+            color={focused ? "#A020F0" : "#131313"}
           />
         ),
         tabBarLabel: "Lista",
-        tabBarActiveTintColor: "#131313",
-        tabBarInactiveTintColor: "#D6D6D6",
+        tabBarActiveTintColor: "#A020F0",
+        tabBarInactiveTintColor: "#131313",
       }} />
       <Tab.Screen name="Profile" component={Profile} initialParams={{ data: mapas }}
           options={{
@@ -63,12 +63,12 @@ const TabRoutes = () => {
               <Feather
                 name="list"
                 size={24}
-                color={focused ? "#131313" : "#D6D6D6"}
+                color={focused ? "#A020F0" : "#131313"}
               />
             ),
             tabBarLabel: "Detalhes",
-            tabBarActiveTintColor: "#131313",
-            tabBarInactiveTintColor: "#D6D6D6",
+            tabBarActiveTintColor: "#A020F0",
+            tabBarInactiveTintColor: "#131313",
           }}/>
       <Tab.Screen name="Category" component={Category}
       options={{
@@ -76,12 +76,12 @@ const TabRoutes = () => {
               <Feather
                 name="user"
                 size={24}
-                color={focused ? "#131313" : "#D6D6D6"}
+                color={focused ? "#A020F0" : "#131313"}
               />
             ),
             tabBarLabel: "Desenvolvedor",
-            tabBarActiveTintColor: "#131313",
-            tabBarInactiveTintColor: "#D6D6D6",
+            tabBarActiveTintColor: "#A020F0",
+            tabBarInactiveTintColor: "#131313",
           }}/> 
     </Tab.Navigator>
   );

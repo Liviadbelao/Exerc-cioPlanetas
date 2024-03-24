@@ -117,7 +117,7 @@ export default function Form({ route }) {
           value={populacao}
        
         />
-
+  <Text>Localização planeta:</Text>
         <TextInput
           style={styles.input}
           placeholder="Digite a galxia"
@@ -139,6 +139,7 @@ export default function Form({ route }) {
           value={coordenadas}
           keyboardType="numeric"
         />
+        <Text>Governo:</Text>
         <TextInput
           style={styles.input}
           placeholder="Digite o nome do governante"

@@ -1,11 +1,22 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import Title from '../../components/Title'
 import styles from './styles'
 export default function Category() {
   return (
-    <View style={styles.container}>
-      <Title title={'Pag Categoria'}/>
+    <View style={styles.container2}>
+      <Title title={'Sobre o Desenvolvedor'}/>
+      <View>
+     
+      <Image style={styles.img} source={require('../../../assets/livia.jpg')}/>
+      <View style={styles.container}>
+     <Text style={styles.texto}> Olá meu nome é Lívia Belão, sou aluna de desenvolvimento de sistema na escola SENAI. </Text>
+     </View>
+     <View style={styles.container}>
+     <Text style={styles.texto}> Estou no terceiro sementre do curso, tenho 17 anos. Esse app foi desenvolvido por mim, e em breve espero desenvolver muitos mais sites e aplicativos. </Text>
+     </View>
+ 
+    </View>
     </View>
   )
 }
