@@ -37,6 +37,8 @@ export default function Profile({ route }) {
         <Text style={styles.text}>Galxia: {data.galaxia}</Text>
         <Text style={styles.text}>Sistema Solar: {data.sisSolar}</Text>
         <Text style={styles.text}>Coordenadas: {data.coordenadas}</Text>
+        <Text style={styles.text}>Governante: {data.governante}</Text>
+        <Text style={styles.text}>Titulo: {data.titulo}</Text>
       </View>
       <View style={styles.buttons}>
         <TouchableOpacity style={styles.button} onPress={editUser}>
