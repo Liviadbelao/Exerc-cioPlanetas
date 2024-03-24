@@ -15,12 +15,14 @@ const styles = StyleSheet.create({
         fontSize:20,
     },
     buttons:{
-        textAlign: 'center',
+      
         padding:2,
+        gap:10,
+        flexDirection:"row"
         
     },
     button:{
-        backgroundColor:"#8A2BE2",
+        backgroundColor:"#EE82EE",
         padding: 10,
         borderRadius: 10,
         marginTop: 5

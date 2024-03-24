@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 
 import listaPlanetas from '../../models/Planeta/Planetas'
 
-
+import styles from "./styles";
+import Title from '../../components/Title'
 export default function Mapas() {
 
   const navigation = useNavigation();
@@ -20,16 +21,17 @@ export default function Mapas() {
   }, [isFocused]);
 
   return (
-    <View>
-      <Text>Planetas</Text>
+    <View style={styles.container}>
+      <Title title={"Planetas"}/>
       <View>
         <View>
           {allPlanetas.length > 0 ? (
             <View>
               {allPlanetas.map((planeta) => (
-                <View key={planeta.id}>
-                  <Text>{planeta.nome}</Text>
+                <View style={styles.box} key={planeta.id}>
+                  <Text style={styles.text}>{planeta.nome}</Text>
                   <TouchableOpacity
+                  style={styles.button}
                     onPress={() => navigation.navigate("Profile", { data: planeta })}
                   >
                     <Text>Detalhes</Text>
