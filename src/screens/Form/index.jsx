@@ -42,6 +42,7 @@ export default function Form({ route }) {
   };
 
   useEffect(() => {
+    console.log("Received parameters:", planeta, edit);
     if (edit) {
       setNome(planeta.nome);
       setNatureza(planeta.natureza);
@@ -50,6 +51,7 @@ export default function Form({ route }) {
     } else {
        clearInputs(); 
     }
+   
   }, [planeta, edit]);
 
   const handleUserAction = () => {
@@ -60,6 +62,7 @@ export default function Form({ route }) {
       const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
       listaPlanetas.addPlaneta(newPlaneta)
     }
+  
     navigation.navigate("Mapas");
   };
   

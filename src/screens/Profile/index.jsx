@@ -13,6 +13,7 @@ export default function Profile({ route }) {
     navigation.navigate("Form", { planeta: data, edit: true });
   };
 
+
   const deleteUser = () => {
     listaPlanetas.remove(data.id);
     navigation.navigate("Mapas");
@@ -30,7 +31,7 @@ export default function Profile({ route }) {
         <Text style={styles.text}>Detalhes do Planeta:</Text>
         <Text style={styles.text}>Nome: {data.nome}</Text>
         <Text style={styles.text}>Natureza: {data.natureza}</Text>
-        <Text style={styles.text}>Data: {data.data}</Text>
+        <Text style={styles.text}>Data: {toString(data.data)}</Text>
       </View>
       <View style={styles.buttons}>
         <TouchableOpacity style={styles.button} onPress={editUser}>

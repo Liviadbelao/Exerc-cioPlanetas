@@ -48,7 +48,7 @@ const TabRoutes = () => {
        options={{
         tabBarIcon: ({ focused }) => (
           <Feather
-            name="planetas"
+            name="list"
             size={24}
             color={focused ? "#131313" : "#D6D6D6"}
           />
