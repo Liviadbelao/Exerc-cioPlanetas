@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
         padding:10,
         borderRadius: 10,
     },
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+    
+      },
     text:{
         fontSize:20,
     },

@@ -14,6 +14,8 @@ export default function Category() {
      </View>
      <View style={styles.container}>
      <Text style={styles.texto}> Estou no terceiro sementre do curso, tenho 17 anos. Esse app foi desenvolvido por mim, e em breve espero desenvolver muitos mais sites e aplicativos. </Text>
+     <Text style={styles.texto}> Planeta: Terra </Text>
+     <Text style={styles.texto}> Estudante </Text>
      </View>
  
     </View>

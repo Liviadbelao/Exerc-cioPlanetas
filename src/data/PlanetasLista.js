@@ -11,6 +11,6 @@ export const mapas =
     governante: "Livia",
     titulo: "presidente",
     corPrimaria:"#90EE90",
-    corSecundaria:"#f3f3"
+    corSecundaria:"#6A5ACD"
 }
 

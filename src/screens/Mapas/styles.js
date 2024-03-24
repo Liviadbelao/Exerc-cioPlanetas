@@ -14,7 +14,12 @@ const styles = StyleSheet.create({
         marginTop:20,
         padding:10,
         borderRadius:10,
-    },
+    }, 
+     image: {
+        flex: 1,
+        justifyContent: 'center',
+    
+      },
     button:{
         backgroundColor:'#EE82EE',
         marginTop:10,

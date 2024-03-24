@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import styles from "./styles";
 
 import listaPlanetas from '../../models/Planeta/Planetas'
-
+const image = '../../../assets/download (4).jpg';
 export default function Profile({ route }) {
   const navigation = useNavigation();
   const { data } = route.params;
@@ -20,6 +20,7 @@ export default function Profile({ route }) {
   };
 
   return (
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
     <View style={styles.container}>
       {data ? (
         <Text>Detalhes do usuário</Text>
@@ -46,5 +47,6 @@ export default function Profile({ route }) {
         </TouchableOpacity>
       </View>
     </View>
+    </ImageBackground>
   );
 }

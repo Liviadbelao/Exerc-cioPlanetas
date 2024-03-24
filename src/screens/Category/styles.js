@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
         borderWidth: 3,
     },
     texto: {
-
-
+        color: 'white',
+        marginTop: 5,
         fontSize: 18,
 
     },
@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
         marginTop: 20,
         width: '80%',
         marginLeft: 50,
-        padding: 2,
+        padding: 10,
+        backgroundColor: "purple",
+        borderRadius:10
     },
     texto3: {
 
