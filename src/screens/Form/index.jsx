@@ -1,25 +1,27 @@
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
+
 import DateTimePicker from "@react-native-community/datetimepicker";
 import styles from './styles';
 import Title from "../../components/Title";
 
-import Planetas from "../../models/Planetas";
-const listaPlanetas = new Planetas();
-import Planeta from "../../models/Planeta";
-import { mapas } from "../../data/PlanetasLista";
+import listaPlanetas from '../../models/Planeta/Planetas';
+import Planeta from "../../models/Planeta/Planeta";
+
 
 export default function Form({ route }) {
+/* navegação */
   let { planeta, edit } = route.params;
-
+/* inputs normais */
   const [nome, setNome] = useState("");
- 
   const [natureza, setNatureza] = useState("");
   const [isUpdate, setIsUpdate] = useState(edit);
+/* input data */
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
+/* navegação */
   const navigation = useNavigation();
 
 
@@ -38,6 +40,7 @@ export default function Form({ route }) {
     showMode("date");
  
   };
+
   useEffect(() => {
     if (edit) {
       setNome(planeta.nome);
@@ -45,19 +48,17 @@ export default function Form({ route }) {
       setDate(new Date());
       setIsUpdate(true);
     } else {
-      /* clearInputs(); */
+       clearInputs(); 
     }
   }, [planeta, edit]);
 
   const handleUserAction = () => {
     if (isUpdate) {
       listaPlanetas.update(planeta.id, nome, natureza, date);
-      /* clearInputs(); */
+      clearInputs();
     } else {
       const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
-      listaPlanetas.addPlaneta(newPlaneta);
-    
-      console.log(listaPlanetas.planetas);
+      listaPlanetas.addPlaneta(newPlaneta)
     }
     navigation.navigate("Mapas");
   };
