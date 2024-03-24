@@ -20,19 +20,26 @@
         this.planetas = this.planetas.filter(planeta=> planeta.id !== id)
     }
 
-    update(id, nome, natureza, data){
+    update(id, nome, natureza, data, populacao, galaxia, sisSolar, coordenadas, governante, titulo){
         const planeta = this.getPlanetaById(id);
 
         if(planeta){
             planeta.nome = nome;
             planeta.natureza = natureza;
             planeta.data = data;
+            planeta.populacao = populacao;
+            planeta.galaxia = galaxia;
+            planeta.sisSolar = sisSolar;
+            
+            planeta.coordenadas = coordenadas;
+            planeta.governante = governante;
+            planeta.titulo = titulo;
         }
         return planeta;
     }
 }
 const listaPlanetas = new Planetas();
-const newPlaneta = new Planeta(mapas.nome, mapas.natureza, mapas.data);
+const newPlaneta = new Planeta(mapas.nome, mapas.natureza, mapas.data, mapas.populacao, mapas.galaxia, mapas.sisSolar, mapas.coordenadas, mapas.governante, mapas.titulo);
 listaPlanetas.addPlaneta(newPlaneta);
 
 export default listaPlanetas;

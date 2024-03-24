@@ -11,21 +11,28 @@ import Planeta from "../../models/Planeta/Planeta";
 
 
 export default function Form({ route }) {
-/* navegação */
+  /* navegação */
   let { planeta, edit } = route.params;
-/* inputs normais */
+  /* inputs normais */
   const [nome, setNome] = useState("");
   const [natureza, setNatureza] = useState("");
+  const [populacao, setPopulacao] = useState("");
+  const [galaxia, setGalaxia] = useState("");
+  const [sisSolar, setSisSolar] = useState("");
+  const [coordenadas, setCoordenadas] = useState("");
+  const [governante, setGovernante] = useState("");
+  const [titulo, setTitulo] = useState("");
+
   const [isUpdate, setIsUpdate] = useState(edit);
-/* input data */
+  /* input data */
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
-/* navegação */
+  /* navegação */
   const navigation = useNavigation();
-/* mensagens */
-const [msgErro, setMsgErro] = useState(false)
-const [msg, setMsg] = useState(false)
+  /* mensagens */
+  const [msgErro, setMsgErro] = useState(false)
+  const [msg, setMsg] = useState(false)
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -40,7 +47,7 @@ const [msg, setMsg] = useState(false)
 
   const showDatepicker = () => {
     showMode("date");
- 
+
   };
 
   useEffect(() => {
@@ -51,33 +58,33 @@ const [msg, setMsg] = useState(false)
       setDate(new Date());
       setIsUpdate(true);
     } else {
-       clearInputs(); 
+      clearInputs();
     }
-   
+
   }, [planeta, edit]);
 
   const handleUserAction = () => {
     if (isUpdate) {
-      listaPlanetas.update(planeta.id, nome, natureza, date);
+      listaPlanetas.update(planeta.id, nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo);
       clearInputs();
     } else {
-      if(nome =='' || natureza ==''){
+      if (nome == '' || natureza == '' || populacao == '' || galaxia ==''|| sisSolar==''|| coordenadas==''|| governante==''|| titulo=='') {
         setMsgErro(true)
-        
-      }else{
+
+      } else {
         setMsgErro(false)
         setMsg(true)
-        const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
+        const newPlaneta = new Planeta(nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo); // Criando novo planeta com os dados corretos
         listaPlanetas.addPlaneta(newPlaneta)
         clearInputs()
         navigation.navigate("Mapas");
       }
-      
+
     }
-  
-    
+
+
   };
-  
+
 
   const clearInputs = () => {
     setIsUpdate(false);
@@ -89,19 +96,62 @@ const [msg, setMsg] = useState(false)
 
   return (
     <View style={styles.container}>
-      <Title title={isUpdate ? "Editar Usuário" : "Novo Usuário"} />
+      <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
       <View>
         <TextInput
-        style={styles.input}
+          style={styles.input}
           placeholder="Digite o nome do Planeta"
           onChangeText={setNome}
           value={nome}
         />
         <TextInput
-         style={styles.input}
-          placeholder="Digite a quantidade de população"
+          style={styles.input}
+          placeholder="Digite os recursos naturais do planeta"
           onChangeText={setNatureza}
           value={natureza}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite a quantidade de população"
+          onChangeText={setPopulacao}
+          value={populacao}
+       
+        />
+
+        <TextInput
+          style={styles.input}
+          placeholder="Digite a galxia"
+          onChangeText={setGalaxia}
+          value={galaxia}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite o sistema solar"
+          onChangeText={setSisSolar}
+          value={sisSolar}
+          
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite as coordenadas"
+          onChangeText={setCoordenadas}
+          value={coordenadas}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite o nome do governante"
+          onChangeText={setGovernante}
+          value={governante}
+         
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite o titulo"
+          onChangeText={setTitulo}
+          value={titulo}
+          
         />
         <TouchableOpacity style={styles.data} onPress={showDatepicker}>
           <Text>Escolha a data</Text>
@@ -121,15 +171,15 @@ const [msg, setMsg] = useState(false)
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity  onPress={handleUserAction}>
+      <TouchableOpacity onPress={handleUserAction}>
         <Text>{isUpdate ? "Salvar Alterações" : "Criar Usuário"}</Text>
       </TouchableOpacity>
-       {
-        msgErro ? (<Text>Preencha os campos</Text>):(<Text></Text>)
-       }
-      
+      {
+        msgErro ? (<Text>Preencha os campos</Text>) : (<Text></Text>)
+      }
+
       {isUpdate && (
-        <TouchableOpacity  onPress={clearInputs}>
+        <TouchableOpacity onPress={clearInputs}>
           <Text>Cancelar Edição</Text>
         </TouchableOpacity>
       )}

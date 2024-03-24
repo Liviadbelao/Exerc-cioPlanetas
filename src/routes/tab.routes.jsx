@@ -53,7 +53,7 @@ const TabRoutes = () => {
             color={focused ? "#131313" : "#D6D6D6"}
           />
         ),
-        tabBarLabel: "Usuários",
+        tabBarLabel: "Lista",
         tabBarActiveTintColor: "#131313",
         tabBarInactiveTintColor: "#D6D6D6",
       }} />
@@ -61,16 +61,28 @@ const TabRoutes = () => {
           options={{
             tabBarIcon: ({ focused }) => (
               <Feather
+                name="list"
+                size={24}
+                color={focused ? "#131313" : "#D6D6D6"}
+              />
+            ),
+            tabBarLabel: "Detalhes",
+            tabBarActiveTintColor: "#131313",
+            tabBarInactiveTintColor: "#D6D6D6",
+          }}/>
+      <Tab.Screen name="Category" component={Category}
+      options={{
+            tabBarIcon: ({ focused }) => (
+              <Feather
                 name="user"
                 size={24}
                 color={focused ? "#131313" : "#D6D6D6"}
               />
             ),
-            tabBarLabel: "Perfil",
+            tabBarLabel: "Desenvolvedor",
             tabBarActiveTintColor: "#131313",
             tabBarInactiveTintColor: "#D6D6D6",
-          }}/>
-      <Tab.Screen name="Category" component={Category} />
+          }}/> 
     </Tab.Navigator>
   );
 };
