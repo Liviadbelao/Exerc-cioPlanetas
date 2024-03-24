@@ -12,7 +12,7 @@ const DrawerRoutes = () => {
   return (
     <Drawer.Navigator screenOptions={{ headerShown: true }}>
       <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Profile" component={Profile}  initialParams={{ data: mapas }}/>
+      <Drawer.Screen name="Profile" component={Profile}  />
       <Drawer.Screen name="Mapas" component={Mapas} />
       <Drawer.Screen name="Form" component={Form} initialParams={{ planeta: null, edit: false }}/>
       <Drawer.Screen name="Category" component={Category} />

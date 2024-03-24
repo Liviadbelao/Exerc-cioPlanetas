@@ -34,4 +34,5 @@
 const listaPlanetas = new Planetas();
 const newPlaneta = new Planeta(mapas.nome, mapas.natureza, mapas.data);
 listaPlanetas.addPlaneta(newPlaneta);
+
 export default Planetas;

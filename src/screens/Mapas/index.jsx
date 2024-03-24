@@ -15,8 +15,10 @@ export default function Mapas() {
 
   useEffect(() => {
     if (isFocused) {
-      const planetas = listaPlanetas.getAll();
-      setPlanetas(planetas);
+      const planetasl = listaPlanetas.getAll();
+      setPlanetas(planetasl);
+
+      console.log(planetasl);
     }
   }, [isFocused]);
 
@@ -25,20 +27,24 @@ export default function Mapas() {
       <Text>Mapas</Text>
       {/* Renderização */}
       <View>
-        {planetas.length > 0 ? (
-          planetas.map((mapas) => (
-            <View key={mapas.id}>
-              <Text>{mapas.nome}</Text>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Profile", { data: mapas })}
-              >
-                <Text>Detalhes</Text>
-              </TouchableOpacity>
-            </View>
-          ))
-        ) : (
-          <Text>Não há planetas cadastrados</Text>
-        )}
+      <View>
+      {planetas.length > 0 ? (
+  planetas.map((planeta) => (
+    <View key={planeta.id}>
+      <Text>{planeta.nome}</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Profile", { data: planeta })}
+      >
+        <Text>Detalhes</Text>
+      </TouchableOpacity>
+    </View>
+  ))
+) : (
+  <Text>Não há planetas cadastrados</Text>
+)}
+
+</View>
+
       </View>
     </View>
   );

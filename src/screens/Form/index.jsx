@@ -8,6 +8,7 @@ import Title from "../../components/Title";
 import Planetas from "../../models/Planetas";
 const listaPlanetas = new Planetas();
 import Planeta from "../../models/Planeta";
+import { mapas } from "../../data/PlanetasLista";
 
 export default function Form({ route }) {
   let { planeta, edit } = route.params;
@@ -51,16 +52,17 @@ export default function Form({ route }) {
   const handleUserAction = () => {
     if (isUpdate) {
       listaPlanetas.update(planeta.id, nome, natureza, date);
-     
       /* clearInputs(); */
     } else {
-      const newPlaneta = new Planeta(nome, natureza, date);
+      const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
       listaPlanetas.addPlaneta(newPlaneta);
+    
       console.log(listaPlanetas);
       /* clearInputs(); */
     }
     navigation.navigate("Mapas");
   };
+  
 
   const clearInputs = () => {
     setIsUpdate(false);

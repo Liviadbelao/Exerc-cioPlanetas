@@ -1,15 +1,17 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text } from "react-native";
 
 export default function Profile({ route }) {
-  const { planeta } = route.params;
-
+  const navigation = useNavigation();
+  const { data } = route.params;
+console.log(data);
   return (
     <View>
-      <Text>Detalhes do Planeta:</Text>
-      <Text>Nome: {planeta.nome}</Text>
-      <Text>Natureza: {planeta.natureza}</Text>
-      <Text>Data: {planeta.data}</Text>
+      <Text>Detalhes do data:</Text>
+      <Text>Nome: {data.nome}</Text>
+      <Text>Natureza: {data.natureza}</Text>
+      <Text>Data: {data.data}</Text>
     </View>
   );
 }
