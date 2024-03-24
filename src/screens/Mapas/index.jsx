@@ -5,7 +5,7 @@ import Planeta from "../../models/Planeta";
 import Planetas from "../../models/Planetas";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 const planetaLista = new Planetas();
 
 export default function Mapas() {
@@ -16,7 +16,7 @@ export default function Mapas() {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
-
+  const navigation = useNavigation();
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
     setShow(false);
@@ -52,6 +52,7 @@ export default function Mapas() {
       planetaLista.update(id, nome, natureza, date)
       setPlanetas(planetaLista.getPlanetaById(id))
    }
+   
   return (
     <View>
       <Text>Mapas</Text>
@@ -87,18 +88,23 @@ export default function Mapas() {
       <View>
         {planetas.length > 0 ? (
           planetas.map((planeta) => (
-            <Text
-              key={planeta.id}
-             /*  onPress={() => navigation.navigate("Profile", { data: planeta })} */
-            >
-              <Text>{planeta.nome}</Text>
+            <Text key={planeta.id}>
+               <TouchableOpacity
+            
+            onPress={() => navigation.navigate("Profile", { data: Mapas })}
+          >
+            <Text>Detalhes</Text>
+        
+            
+             {/*  <Text>{planeta.nome}</Text>
               <Text>{planeta.natureza}</Text>
               <Text>
                 {planeta.data.getDate()}/{planeta.data.getMonth()}/
                 {planeta.data.getFullYear()}
-              </Text>
-              <TouchableOpacity onPress={() => deletePlaneta(planeta.id)}><Text>deletar</Text></TouchableOpacity>
-              <TouchableOpacity onPress={() => editar(planeta.id)}><Text>Editar</Text></TouchableOpacity>
+              </Text> */}
+             {/*  <TouchableOpacity onPress={() => deletePlaneta(planeta.id)}><Text>deletar</Text></TouchableOpacity>
+              <TouchableOpacity onPress={() => editar(planeta.id)}><Text>Editar</Text></TouchableOpacity> */}
+            </TouchableOpacity>
             </Text>
           ))
         ) : (
