@@ -23,7 +23,9 @@ export default function Form({ route }) {
   const [show, setShow] = useState(false);
 /* navegação */
   const navigation = useNavigation();
-
+/* mensagens */
+const [msgErro, setMsgErro] = useState(false)
+const [msg, setMsg] = useState(false)
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -59,11 +61,21 @@ export default function Form({ route }) {
       listaPlanetas.update(planeta.id, nome, natureza, date);
       clearInputs();
     } else {
-      const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
-      listaPlanetas.addPlaneta(newPlaneta)
+      if(nome =='' || natureza ==''){
+        setMsgErro(true)
+        
+      }else{
+        setMsgErro(false)
+        setMsg(true)
+        const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
+        listaPlanetas.addPlaneta(newPlaneta)
+        clearInputs()
+        navigation.navigate("Mapas");
+      }
+      
     }
   
-    navigation.navigate("Mapas");
+    
   };
   
 
@@ -112,7 +124,10 @@ export default function Form({ route }) {
       <TouchableOpacity  onPress={handleUserAction}>
         <Text>{isUpdate ? "Salvar Alterações" : "Criar Usuário"}</Text>
       </TouchableOpacity>
-
+       {
+        msgErro ? (<Text>Preencha os campos</Text>):(<Text></Text>)
+       }
+      
       {isUpdate && (
         <TouchableOpacity  onPress={clearInputs}>
           <Text>Cancelar Edição</Text>
