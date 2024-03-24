@@ -1,23 +1,15 @@
-import { View, Text } from 'react-native'
-import { useNavigation } from "@react-navigation/native";
-import React from 'react'
-import Title from '../../components/Title'
-import styles from './styles'
+import React from "react";
+import { View, Text } from "react-native";
+
 export default function Profile({ route }) {
+  const { planeta } = route.params;
 
-  const { data } = route.params;
   return (
-    <View >
-      <Title title={"Pag Profile"}/>
-   
-
-   
-        <View >
-          <Text >{data.nome}</Text>
-          <Text >{data.natureza}</Text>
-          <Text >{data.data}</Text>
-        </View>
-     
+    <View>
+      <Text>Detalhes do Planeta:</Text>
+      <Text>Nome: {planeta.nome}</Text>
+      <Text>Natureza: {planeta.natureza}</Text>
+      <Text>Data: {planeta.data}</Text>
     </View>
-  )
+  );
 }

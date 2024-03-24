@@ -1,7 +1,9 @@
-export default class Planetas {
+ import Planeta from "./Planeta";
+ import { mapas } from "../data/PlanetasLista";
+ class Planetas {
     constructor(){
         this.planetas = []
-        this.id = this.gerarId();
+    
     }
     getAll(){
         return this.planetas
@@ -13,9 +15,7 @@ export default class Planetas {
         this.planetas.push(planeta)
     }
 
-    gerarId() {
-        return Math.floor(Math.random() * 999999);
-    }
+  
     remove(id){
         this.planetas = this.planetas.filter(planeta=> planeta.id != id)
     }
@@ -31,3 +31,7 @@ export default class Planetas {
         return planeta;
     }
 }
+const listaPlanetas = new Planetas();
+const newPlaneta = new Planeta(mapas.nome, mapas.natureza, mapas.data);
+listaPlanetas.addPlaneta(newPlaneta);
+export default Planetas;

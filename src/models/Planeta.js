@@ -2,12 +2,14 @@
 
 export default class Planeta {
     constructor(id, nome, natureza, data){
-        this.id = id;
+        this.id = this.gerarId();
         this.nome = nome;
         this.natureza = natureza;
         this.data = data;
     }
-
+    gerarId() {
+        return Math.floor(Math.random() * 999999);
+    }
     fullDateBR() {
         const month = data.getMonth()
         const day = data.getDate()
