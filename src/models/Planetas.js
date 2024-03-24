@@ -7,12 +7,17 @@
     }
     getAll(){
         return this.planetas
+       
     }
     getPlanetaById(id){
         return this.planetas.find((planeta) => planeta.id == id)
     }
     addPlaneta(planeta){
-        this.planetas.push(planeta)
+        this.planetas.push(mapas)
+         this.planetas.push(planeta)
+        
+         console.log(mapas);
+       
     }
 
   

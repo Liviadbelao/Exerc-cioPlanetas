@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import styles from "./styles";
 import { View, Text, TouchableOpacity } from "react-native";
 import Planetas from "../../models/Planetas";
 const listaPlanetas = new Planetas()
@@ -17,16 +18,18 @@ export default function Profile({ route }) {
   };
 console.log(data);
   return (
-    <View>
-      <Text>Detalhes do data:</Text>
-      <Text>Nome: {data.nome}</Text>
-      <Text>Natureza: {data.natureza}</Text>
-      <Text>Data: {data.data}</Text>
-      <View >
-          <TouchableOpacity  onPress={editUser}>
+    <View style={styles.container}>
+      <View style={styles.textBox}>
+      <Text style={styles.text}>Detalhes do data:</Text>
+      <Text style={styles.text}>Nome: {data.nome}</Text>
+      <Text style={styles.text}>Natureza: {data.natureza}</Text>
+      <Text style={styles.text}>Data: {data.data}</Text>
+      </View>
+      <View style={styles.buttons}>
+          <TouchableOpacity style={styles.button}  onPress={editUser}>
             <Text>Editar</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={deleteUser}>
+          <TouchableOpacity  style={styles.button} onPress={deleteUser}>
             <Text>Excluir</Text>
           </TouchableOpacity>
         </View>

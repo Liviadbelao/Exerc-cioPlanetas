@@ -2,7 +2,7 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
-
+import styles from './styles';
 import Title from "../../components/Title";
 
 import Planetas from "../../models/Planetas";
@@ -57,8 +57,7 @@ export default function Form({ route }) {
       const newPlaneta = new Planeta(nome, natureza, date); // Criando novo planeta com os dados corretos
       listaPlanetas.addPlaneta(newPlaneta);
     
-      console.log(listaPlanetas);
-      /* clearInputs(); */
+      console.log(listaPlanetas.planetas);
     }
     navigation.navigate("Mapas");
   };
@@ -73,20 +72,22 @@ export default function Form({ route }) {
   };
 
   return (
-    <View >
+    <View style={styles.container}>
       <Title title={isUpdate ? "Editar Usuário" : "Novo Usuário"} />
       <View>
         <TextInput
+        style={styles.input}
           placeholder="Digite o nome do Planeta"
           onChangeText={setNome}
           value={nome}
         />
         <TextInput
+         style={styles.input}
           placeholder="Digite a quantidade de população"
           onChangeText={setNatureza}
           value={natureza}
         />
-        <TouchableOpacity onPress={showDatepicker}>
+        <TouchableOpacity style={styles.data} onPress={showDatepicker}>
           <Text>Escolha a data</Text>
         </TouchableOpacity>
 

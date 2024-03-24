@@ -12,8 +12,8 @@ const TabRoutes = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Form" component={Form}  initialParams={{ user: null, edit: false }} />
-      <Tab.Screen name="Mapas" component={Mapas} initialParams={{ mapas }} />
+      <Tab.Screen name="Form" component={Form}  initialParams={{ planeta: null, edit: false }} />
+      <Tab.Screen name="Mapas" component={Mapas} initialParams={{ Mapas }} />
       <Tab.Screen name="Profile" component={Profile} initialParams={{ data: mapas }}/>
       <Tab.Screen name="Category" component={Category} />
     </Tab.Navigator>

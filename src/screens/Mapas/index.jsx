@@ -18,7 +18,7 @@ export default function Mapas() {
       const planetasl = listaPlanetas.getAll();
       setPlanetas(planetasl);
 
-      console.log(planetasl);
+      console.log("array",listaPlanetas.getAll());
     }
   }, [isFocused]);
 
