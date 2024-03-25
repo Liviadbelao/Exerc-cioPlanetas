@@ -5,40 +5,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-
-
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-
-  },
-  input: {
-    padding: 10,
-
-    backgroundColor: 'tranparent',
-    color: "white",
-
-
-  },
-  cor: {
-    height: 100,
-    width: 100
-  },
-  button: {
-    backgroundColor: "pink",
-    padding: 10
-  },
+    backgroundColor: "#222222",},
+   
   inputBox: {
-    backgroundColor: "purple",
-    padding: 20,
-    borderRadius: 20,
-    width:'100%'
+    width: "80%",
+    marginBottom: 20,
+    
+  },
+  
+  input: {
+    height: 40,
+    backgroundColor:'#4a5c6a',
+   padding:10,
+   borderRadius:80,
+    marginBottom: 10,
+    paddingHorizontal: 10,
   },
   data: {
+    borderWidth: 1,
+    borderColor: "gray",
     padding: 10,
-    marginTop: 10,
-    backgroundColor: '#fff'
-  }
-})
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "#DDDDDD",
+    padding: 10,
+    marginBottom: 10,
+  },
+  cor: {
+    width:"30%",
+    height:'20%'
+  },
+});
+
 export default styles;

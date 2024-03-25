@@ -5,7 +5,7 @@ import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Category from "../screens/Category";
 import Form from "../screens/Form";
-import Mapas from "../screens/Mapas";
+import ListaPlanetas from '../screens/ListaPlanetas'
 import { mapas } from "../data/PlanetasLista";
 
 
@@ -44,7 +44,7 @@ const TabRoutes = () => {
           tabBarActiveTintColor: "#A020F0",
           tabBarInactiveTintColor: "#131313",
         }} />
-      <Tab.Screen name="Mapas" component={Mapas} initialParams={{ mapas1 }}
+      <Tab.Screen name="ListaPlanetas" component={ListaPlanetas} initialParams={{ mapas1 }}
        options={{
         tabBarIcon: ({ focused }) => (
           <Feather
@@ -69,6 +69,9 @@ const TabRoutes = () => {
             tabBarLabel: "Detalhes",
             tabBarActiveTintColor: "#A020F0",
             tabBarInactiveTintColor: "#131313",
+            tabBarItemStyle:{
+              display: 'none',
+            }
           }}/>
       <Tab.Screen name="Category" component={Category}
       options={{

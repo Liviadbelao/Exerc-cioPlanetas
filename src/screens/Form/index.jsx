@@ -1,4 +1,4 @@
-import { Text, TextInput, TouchableOpacity, View, ImageBackground } from "react-native";
+import { Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
@@ -11,6 +11,7 @@ import Title from "../../components/Title";
 
 import listaPlanetas from '../../models/Planeta/Planetas';
 import Planeta from "../../models/Planeta/Planeta";
+
 
 
 const image = '../../../assets/download (3).jpg';
@@ -182,7 +183,7 @@ export default function Form({ route }) {
   };
 
   return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+   <ScrollView>
     <View style={styles.container}>
       <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
       <View style={styles.inputBox}>
@@ -283,6 +284,6 @@ export default function Form({ route }) {
         </TouchableOpacity>
       )}
     </View>
-    </ImageBackground>
+    </ScrollView>
   );
 }

@@ -4,28 +4,28 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 
 import listaPlanetas from '../../models/Planeta/Planetas'
-const image = '../../../assets/download (4).jpg';
+
 export default function Profile({ route }) {
   const navigation = useNavigation();
   const { data } = route.params;
 
-  const editUser = () => {
+  const editPlaneta = () => {
     navigation.navigate("Form", { planeta: data, edit: true });
   };
 
 
-  const deleteUser = () => {
+  const deletePlaneta = () => {
     listaPlanetas.remove(data.id);
-    navigation.navigate("Mapas");
+    navigation.navigate("ListaPlanetas");
   };
 
   return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+  
     <View style={styles.container}>
       {data ? (
-        <Text>Detalhes do usuário</Text>
+        <Text>Detalhes do Planeta</Text>
       ) : (
-        <Text>Selecione um usuário para exibir seus detalhes</Text>
+        <Text>Selecione um Planeta para exibir seus detalhes</Text>
       )}
 
       <View style={{ backgroundColor: data.corSecundaria, padding:10, borderRadius:10, marginTop:10 }}>
@@ -41,14 +41,14 @@ export default function Profile({ route }) {
         <Text style={styles.text}>Titulo: {data.titulo}</Text>
       </View>
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.button} onPress={editUser}>
+        <TouchableOpacity style={styles.button} onPress={editPlaneta}>
           <Text>Editar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={deleteUser}>
+        <TouchableOpacity style={styles.button} onPress={deletePlaneta}>
           <Text>Excluir</Text>
         </TouchableOpacity>
       </View>
     </View>
-    </ImageBackground>
+
   );
 }

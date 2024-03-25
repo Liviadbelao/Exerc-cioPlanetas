@@ -7,7 +7,7 @@ import listaPlanetas from '../../models/Planeta/Planetas'
 import styles from "./styles";
 import Title from '../../components/Title'
 const image = '../../../assets/download (4).jpg';
-export default function Mapas() {
+export default function ListaPlanetas() {
 
   const navigation = useNavigation();
   const isFocused = useIsFocused();
@@ -22,7 +22,7 @@ export default function Mapas() {
   }, [isFocused]);
 
   return (
-    <ImageBackground source={image} style={styles.image}>
+   
     <View style={styles.container}>
       <Title title={"Planetas"}/>
       <View>
@@ -49,6 +49,6 @@ export default function Mapas() {
 
       </View>
     </View>
-    </ImageBackground>
+  
   );
 }
