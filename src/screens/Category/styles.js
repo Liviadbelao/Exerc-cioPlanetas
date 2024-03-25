@@ -4,12 +4,13 @@ const styles = StyleSheet.create({
     container2: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor:"black"
     },
     img: {
         marginTop: 20,
         borderRadius: '100%',
-        marginLeft: '35%',
+        
         borderColor: "#EE82EE",
         borderWidth: 3,
     },
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 20,
         width: '80%',
-        marginLeft: 50,
+        
         padding: 10,
         backgroundColor: "purple",
         borderRadius:10

@@ -1,9 +1,11 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import Title from '../../components/Title'
 import styles from './styles'
+
 export default function Category() {
   return (
+    <ScrollView>
     <View style={styles.container2}>
       <Title title={'Sobre o Desenvolvedor'}/>
       <View>
@@ -18,7 +20,18 @@ export default function Category() {
      <Text style={styles.texto}> Estudante </Text>
      </View>
  
+     <View style={styles.container}>
+     <Text style={styles.texto}> Linguagens conhecidas :
+     HTML
+     CSS
+     JavaScript
+     React
+     React Native </Text>
+    
+     </View>
+ 
     </View>
     </View>
+    </ScrollView>
   )
 }

@@ -63,6 +63,14 @@ export default function Form({ route }) {
       setNome(planeta.nome);
       setNatureza(planeta.natureza);
       setDate(new Date());
+      setPopulacao(planeta.populacao)
+      setGalaxia(planeta.galaxia);
+      setSisSolar(planeta.sisSolar);
+      setCoordenadas(planeta.coordenadas);
+      setGovernante(planeta.governante);
+      setTitulo(planeta.titulo);
+      setCorSecundaria(planeta.corSecundaria);
+      setCorPrimaria(planeta.corPrimaria)
       setIsUpdate(true);
     } else {
       clearInputs();
@@ -178,6 +186,7 @@ export default function Form({ route }) {
     <View style={styles.container}>
       <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
       <View style={styles.inputBox}>
+        <Text>Informações do planeta:</Text>
         <TextInput
           style={styles.input}
           placeholder="Digite o nome do Planeta"
@@ -262,7 +271,7 @@ export default function Form({ route }) {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={handleUserAction}>
-        <Text>{isUpdate ? "Salvar Alterações" : "Criar Usuário"}</Text>
+        <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
       </TouchableOpacity>
       {
         msgErro ? (<Text>Preencha os campos</Text>) : (<Text></Text>)

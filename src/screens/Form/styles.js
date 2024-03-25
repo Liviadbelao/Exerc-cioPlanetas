@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
     backgroundColor: "purple",
     padding: 20,
     borderRadius: 20,
-    width: '50%',
-    height: '70%'
+    width:'100%'
   },
   data: {
     padding: 10,
