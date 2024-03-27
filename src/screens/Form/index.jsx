@@ -1,20 +1,25 @@
-import { Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
+import {
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
 import { ColorPicker } from "react-native-color-picker";
 
 import Slider from "@react-native-community/slider";
-import DateTimePicker from "@react-native-community/datetimepicker";;
-import styles from './styles';
+import DateTimePicker from "@react-native-community/datetimepicker";
+import styles from "./styles";
 import Title from "../../components/Title";
 
-import listaPlanetas from '../../models/Planeta/Planetas';
+import listaPlanetas from "../../models/Planeta/Planetas";
 import Planeta from "../../models/Planeta/Planeta";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-
-const image = '../../../assets/download (3).jpg';
+const image = "../../../assets/download (3).jpg";
 export default function Form({ route }) {
   /* navegação */
   let { planeta, edit } = route.params;
@@ -39,8 +44,8 @@ export default function Form({ route }) {
   /* navegação */
   const navigation = useNavigation();
   /* mensagens */
-  const [msgErro, setMsgErro] = useState(false)
-  const [msg, setMsg] = useState(false)
+  const [msgErro, setMsgErro] = useState(false);
+  const [msg, setMsg] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -55,7 +60,6 @@ export default function Form({ route }) {
 
   const showDatepicker = () => {
     showMode("date");
-
   };
 
   useEffect(() => {
@@ -64,41 +68,70 @@ export default function Form({ route }) {
       setNome(planeta.nome);
       setNatureza(planeta.natureza);
       setDate(new Date());
-      setPopulacao(planeta.populacao)
+      setPopulacao(planeta.populacao);
       setGalaxia(planeta.galaxia);
       setSisSolar(planeta.sisSolar);
       setCoordenadas(planeta.coordenadas);
       setGovernante(planeta.governante);
       setTitulo(planeta.titulo);
       setCorSecundaria(planeta.corSecundaria);
-      setCorPrimaria(planeta.corPrimaria)
+      setCorPrimaria(planeta.corPrimaria);
       setIsUpdate(true);
     } else {
       clearInputs();
     }
-
   }, [planeta, edit]);
 
   const handleUserAction = () => {
     if (isUpdate) {
-      listaPlanetas.update(planeta.id, nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria);
+      listaPlanetas.update(
+        planeta.id,
+        nome,
+        natureza,
+        date,
+        populacao,
+        galaxia,
+        sisSolar,
+        coordenadas,
+        governante,
+        titulo,
+        corPrimaria,
+        corSecundaria
+      );
       clearInputs();
     } else {
-      if (nome == '' || natureza == '' || populacao == '' || galaxia ==''|| sisSolar==''|| coordenadas==''|| governante==''|| titulo=='') {
-        setMsgErro(true)
-
+      if (
+        nome == "" ||
+        natureza == "" ||
+        populacao == "" ||
+        galaxia == "" ||
+        sisSolar == "" ||
+        coordenadas == "" ||
+        governante == "" ||
+        titulo == ""
+      ) {
+        setMsgErro(true);
       } else {
-        setMsgErro(false)
-        setMsg(true)
-        const newPlaneta = new Planeta(nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria); // Criando novo planeta com os dados corretos
-        listaPlanetas.addPlaneta(newPlaneta)
-        clearInputs()
+        setMsgErro(false);
+        setMsg(true);
+        const newPlaneta = new Planeta(
+          nome,
+          natureza,
+          date,
+          populacao,
+          galaxia,
+          sisSolar,
+          coordenadas,
+          governante,
+          titulo,
+          corPrimaria,
+          corSecundaria
+        ); // Criando novo planeta com os dados corretos
+        listaPlanetas.addPlaneta(newPlaneta);
+        clearInputs();
         navigation.navigate("ListaPlanetas");
       }
-
     }
-
-
   };
 
   // Função de conversão de HSV para RGB para conseguir deixar a cor do icon certa
@@ -183,137 +216,139 @@ export default function Form({ route }) {
     setCoordenadas("");
     setGalaxia("");
     setGovernante("");
-    setTitulo("")
-    setSisSolar("")
-    setPopulacao("")
+    setTitulo("");
+    setSisSolar("");
+    setPopulacao("");
   };
 
   return (
-   <ScrollView>
-    <View style={styles.container}>
-      <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
-      <View style={styles.inputBox}>
-        <Text>Informações do planeta:</Text>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="brightness-1"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o nome do Planeta"
-          onChangeText={setNome}
-          value={nome}
-        />
-        </View>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="pine-tree"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite os recursos naturais do planeta"
-          onChangeText={setNatureza}
-          value={natureza}
-        />
-        </View>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="account-multiple-plus"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite a quantidade de população"
-          onChangeText={setPopulacao}
-          value={populacao}
-       
-        />
-         </View>
-  <Text>Localização planeta:</Text>
-  <View style={styles.box}>
-  <Icon style={styles.iconStyle} name="star-circle-outline"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite a galxia"
-          onChangeText={setGalaxia}
-          value={galaxia}
-          keyboardType="numeric"
-        />
-        </View>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="white-balance-sunny"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o sistema solar"
-          onChangeText={setSisSolar}
-          value={sisSolar}
-          
-        />
-        </View>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="code-equal"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite as coordenadas"
-          onChangeText={setCoordenadas}
-          value={coordenadas}
-          keyboardType="numeric"
-        />
-        </View>
-        <Text>Governo:</Text>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="crown"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o nome do governante"
-          onChangeText={setGovernante}
-          value={governante}
-         
-        />
-        </View>
-        <View style={styles.box}>
-        <Icon style={styles.iconStyle} name="account"></Icon>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o titulo"
-          onChangeText={setTitulo}
-          value={titulo}
-          
-        />
-        </View>
-        <TouchableOpacity style={styles.data} onPress={showDatepicker}>
-          <Text>Escolha a data</Text>
-        </TouchableOpacity>
+    <ScrollView style={styles.view}>
+      <View style={styles.container}>
+        <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
+        <View style={styles.inputBox}>
+          <Text style={styles.text1}>Informações do planeta:</Text>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="brightness-1"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite o nome do Planeta"
+              onChangeText={setNome}
+              value={nome}
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="pine-tree"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite os recursos naturais do planeta"
+              onChangeText={setNatureza}
+              value={natureza}
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="account-multiple-plus"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite a quantidade de população"
+              onChangeText={setPopulacao}
+              value={populacao}
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
+          <Text style={styles.text}>Localização planeta:</Text>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="star-circle-outline"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite a galxia"
+              onChangeText={setGalaxia}
+              value={galaxia}
+              keyboardType="numeric"
+              placeholderTextColor={'#D3D3D3'}  
+            />
+          </View>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="white-balance-sunny"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite o sistema solar"
+              onChangeText={setSisSolar}
+              value={sisSolar}
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="code-equal"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite as coordenadas"
+              onChangeText={setCoordenadas}
+              value={coordenadas}
+              keyboardType="numeric"
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
+          <Text style={styles.text}>Governo:</Text>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="crown"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite o nome do governante"
+              onChangeText={setGovernante}
+              value={governante}
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="account"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite o titulo"
+              placeholderTextColor={'#D3D3D3'}
+              onChangeText={setTitulo}
+              value={titulo}
+            />
+          </View>
+          <TouchableOpacity style={styles.data} onPress={showDatepicker}>
+            <Text style={styles.text}>Escolha a data</Text>
+          </TouchableOpacity>
 
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date || new Date()}
-            mode={mode}
-            is24Hour={true}
-            onChange={onChange}
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={date || new Date()}
+              mode={mode}
+              is24Hour={true}
+              onChange={onChange}
+            />
+          )}
+
+          <ColorPicker
+            onColorChange={onColorChangePrimaryColor}
+            sliderComponent={Slider}
+            style={styles.cor}
           />
-        )}
-     
-     <ColorPicker
-        onColorChange={onColorChangePrimaryColor}
-        sliderComponent={Slider}
-   style={styles.cor}
-      />
 
-      <ColorPicker
-        onColorChange={onColorChangeSecundColor}
-        sliderComponent={Slider}
-        style={styles.cor}
-      />
-      </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleUserAction}>
-        <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
-      </TouchableOpacity>
-      {
-        msgErro ? (<Text>Preencha os campos</Text>) : (<Text></Text>)
-      }
-
-      {isUpdate && (
-        <TouchableOpacity onPress={clearInputs}>
-          <Text>Cancelar Edição</Text>
+          <ColorPicker
+            onColorChange={onColorChangeSecundColor}
+            sliderComponent={Slider}
+            style={styles.cor}
+          />
+        </View>
+        {msgErro ? <Text style={styles.erro}>Preencha todos os campos</Text> : <Text></Text>}
+        <TouchableOpacity style={styles.button} onPress={handleUserAction}>
+          <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
         </TouchableOpacity>
-      )}
-    </View>
+     
+
+        {isUpdate && (
+          <TouchableOpacity onPress={clearInputs}>
+            <Text>Cancelar Edição</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </ScrollView>
   );
 }
