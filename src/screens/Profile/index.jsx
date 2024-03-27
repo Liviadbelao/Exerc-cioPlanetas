@@ -32,7 +32,7 @@ export default function Profile({ route }) {
         <Text style={styles.text}>Detalhes do Planeta:</Text>
         <Text style={styles.text}>Nome: {data.nome}</Text>
         <Text style={styles.text}>Natureza: {data.natureza}</Text>
-        <Text style={styles.text}>Data: {toString(data.data)}</Text>
+        <Text style={styles.text}>Data: {new Date(data.data).toLocaleDateString()}</Text>
         <Text style={styles.text}>População: {data.populacao}</Text>
         <Text style={styles.text}>Galxia: {data.galaxia}</Text>
         <Text style={styles.text}>Sistema Solar: {data.sisSolar}</Text>

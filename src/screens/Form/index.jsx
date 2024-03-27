@@ -11,7 +11,7 @@ import Title from "../../components/Title";
 
 import listaPlanetas from '../../models/Planeta/Planetas';
 import Planeta from "../../models/Planeta/Planeta";
-
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 const image = '../../../assets/download (3).jpg';
@@ -93,7 +93,7 @@ export default function Form({ route }) {
         const newPlaneta = new Planeta(nome, natureza, date, populacao, galaxia, sisSolar, coordenadas, governante, titulo, corPrimaria, corSecundaria); // Criando novo planeta com os dados corretos
         listaPlanetas.addPlaneta(newPlaneta)
         clearInputs()
-        navigation.navigate("Mapas");
+        navigation.navigate("ListaPlanetas");
       }
 
     }
@@ -180,6 +180,12 @@ export default function Form({ route }) {
     setNome("");
     setNatureza("");
     setDate("");
+    setCoordenadas("");
+    setGalaxia("");
+    setGovernante("");
+    setTitulo("")
+    setSisSolar("")
+    setPopulacao("")
   };
 
   return (
@@ -188,18 +194,26 @@ export default function Form({ route }) {
       <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
       <View style={styles.inputBox}>
         <Text>Informações do planeta:</Text>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="brightness-1"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite o nome do Planeta"
           onChangeText={setNome}
           value={nome}
         />
+        </View>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="pine-tree"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite os recursos naturais do planeta"
           onChangeText={setNatureza}
           value={natureza}
         />
+        </View>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="account-multiple-plus"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite a quantidade de população"
@@ -207,7 +221,10 @@ export default function Form({ route }) {
           value={populacao}
        
         />
+         </View>
   <Text>Localização planeta:</Text>
+  <View style={styles.box}>
+  <Icon style={styles.iconStyle} name="star-circle-outline"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite a galxia"
@@ -215,6 +232,9 @@ export default function Form({ route }) {
           value={galaxia}
           keyboardType="numeric"
         />
+        </View>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="white-balance-sunny"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite o sistema solar"
@@ -222,6 +242,9 @@ export default function Form({ route }) {
           value={sisSolar}
           
         />
+        </View>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="code-equal"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite as coordenadas"
@@ -229,7 +252,10 @@ export default function Form({ route }) {
           value={coordenadas}
           keyboardType="numeric"
         />
+        </View>
         <Text>Governo:</Text>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="crown"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite o nome do governante"
@@ -237,6 +263,9 @@ export default function Form({ route }) {
           value={governante}
          
         />
+        </View>
+        <View style={styles.box}>
+        <Icon style={styles.iconStyle} name="account"></Icon>
         <TextInput
           style={styles.input}
           placeholder="Digite o titulo"
@@ -244,6 +273,7 @@ export default function Form({ route }) {
           value={titulo}
           
         />
+        </View>
         <TouchableOpacity style={styles.data} onPress={showDatepicker}>
           <Text>Escolha a data</Text>
         </TouchableOpacity>
@@ -251,7 +281,7 @@ export default function Form({ route }) {
         {show && (
           <DateTimePicker
             testID="dateTimePicker"
-            value={date}
+            value={date || new Date()}
             mode={mode}
             is24Hour={true}
             onChange={onChange}
