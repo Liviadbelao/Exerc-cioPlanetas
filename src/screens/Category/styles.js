@@ -3,14 +3,16 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container2: {
         flex: 1,
+        textAlign:"center",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor:"black"
+        backgroundColor: "black"
     },
+ 
     img: {
         marginTop: 20,
         borderRadius: '100%',
-        
+margin:'auto',
         borderColor: "#EE82EE",
         borderWidth: 3,
     },
@@ -23,10 +25,10 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 20,
         width: '80%',
-        
+margin:'auto',
         padding: 10,
         backgroundColor: "purple",
-        borderRadius:10
+        borderRadius: 10
     },
     texto3: {
 

@@ -2,15 +2,17 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
+      flex:1,
        justifyContent:"center",
        alignItems:"center",
-       backgroundColor:'black'
+       backgroundColor:"black"
     },
+   
+ 
     image: {
         flex: 1,
         justifyContent: 'center',
-    
+        zIndex: 0,
       },
       box:{
         backgroundColor: 'rgba(255, 255, 255, 0.3)',
@@ -21,13 +23,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 32,
     elevation: 10, 
-    borderColor: 'rgba(255, 255, 255, 0.3)',
-    borderWidth: 1,
+    borderColor: 'purple',
+    borderWidth: 3,
     zIndex: 10,
-  
+  marginTop:-20,
+  marginLeft:48,
+  width:'80%',
         padding:10,
         borderRadius:10,
       },
+      titulo: {
+     width:'100%',
+     marginTop:10,
+        height:'20%'
+    },
       text:{
         fontSize:18,
         color:'white'
