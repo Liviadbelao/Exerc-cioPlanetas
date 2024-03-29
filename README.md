@@ -3,7 +3,8 @@
     <a href="https://reactnative.dev/">🔗 React Native</a>
    
 </h1
-    
+    <h1 aling="center"> Imagens do site</h1>
+   
 ## Tecnologias Utilizadas: Rect Native, Biblioteca Botton Tab, Androi Studium, VS code, JavaScript, CSS.
 
 
