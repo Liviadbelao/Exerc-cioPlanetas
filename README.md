@@ -4,13 +4,18 @@
    
 </h1
     <h1 aling="center"> Imagens do site</h1>
+    <h1 aling="center"> Pagina sobre o desenvolvedor</h1>
    
 <img src='./assets/pagSobreMIm.png'/>
+<h1 aling='center'> Página Home</h1>
 <img src='./assets/pagHomePlanetas.png'/>
 <img src='./assets/pagHomePlanetas2.png'/>
+<h1 aling='center'> Formulario</h1>
 <img src='./assets/inputsPlanetas.png'/>
-<img src='./assets/pagCategoryPlanetas.png'/>
-<img src='./assets/pagDetalhamentoPlanetas.png'/>
+<h1>Lista de planetas</h1>
+<img src='./assets/pagCategoryPlaneta.png'/>
+<h1>Detalhamento de planetas</h1>
+<img src='./assets/detalhesPlanetas.png'/>
 ## Tecnologias Utilizadas: Rect Native, Biblioteca Botton Tab, Androi Studium, VS code, JavaScript, CSS.
 
 
