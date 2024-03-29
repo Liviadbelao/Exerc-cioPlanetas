@@ -6,6 +6,11 @@
     <h1 aling="center"> Imagens do site</h1>
    
 <img src='./assets/pagSobreMIm.png'/>
+<img src='./assets/pagHomePlanetas.png'/>
+<img src='./assets/pagHomePlanetas2.png'/>
+<img src='./assets/inputsPlanetas.png'/>
+<img src='./assets/pagCategoryPlanetas.png'/>
+<img src='./assets/pagDetalhamentoPlanetas.png'/>
 ## Tecnologias Utilizadas: Rect Native, Biblioteca Botton Tab, Androi Studium, VS code, JavaScript, CSS.
 
 
