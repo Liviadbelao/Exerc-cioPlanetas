@@ -5,6 +5,7 @@
 </h1
     <h1 aling="center"> Imagens do site</h1>
    
+<img src='./assets/pagSobreMIm.png'/>
 ## Tecnologias Utilizadas: Rect Native, Biblioteca Botton Tab, Androi Studium, VS code, JavaScript, CSS.
 
 
