@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
@@ -30,14 +30,32 @@ export default function ListaPlanetas() {
           {allPlanetas.length > 0 ? (
             <View>
               {allPlanetas.map((planeta) => (
-              <View style={{ backgroundColor: planeta.corPrimaria, padding:10, borderRadius:10, marginTop:10 }} key={planeta.id}>
+              <View style={{ borderColor: planeta.corPrimaria,
+                padding:10,
+             
+                 
+                  marginTop:10,
+                   borderWidth:3,
+                   backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                   borderRadius: 16,
+                   padding: 24,
+                   height:'100%',
+                   shadowColor: 'rgba(31, 38, 135, 0.37)',
+                   shadowOffset: { width: 0, height: 8 },
+                   shadowOpacity: 1,
+                   shadowRadius: 32,
+                   elevation: 10,}} key={planeta.id}>
+                    <View>
+                    <Image source={require('../../../assets/Croquis_dibujados_a_mano_del_planeta_saturno_en_monocromo___Vector_Premium-removebg-preview.png')} style={styles.image}/>
                   <Text style={styles.text}>{planeta.nome}</Text>
                   <TouchableOpacity
                   style={styles.button}
                     onPress={() => navigation.navigate("Profile", { data: planeta })}
                   >
                     <Text>Detalhes</Text>
+                    
                   </TouchableOpacity>
+                  </View>
                 </View>
               ))}
             </View>

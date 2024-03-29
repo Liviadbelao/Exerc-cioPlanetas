@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
+        backgroundColor:'black'
     },
     box:{
         alignItems:"center",
@@ -27,8 +28,16 @@ const styles = StyleSheet.create({
         borderRadius:10,
         
     },
+    image:{
+        width:'130%',
+        height:'50%',
+        marginLeft:-10
+
+    },
     text:{
         fontSize:30,
+        color:'white',
+       
     }
 })
 export default styles

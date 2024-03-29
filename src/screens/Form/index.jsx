@@ -46,6 +46,7 @@ export default function Form({ route }) {
   /* mensagens */
   const [msgErro, setMsgErro] = useState(false);
   const [msg, setMsg] = useState(false);
+  const [msgData, setMsgData] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -111,9 +112,13 @@ export default function Form({ route }) {
         titulo == ""
       ) {
         setMsgErro(true);
+      }else if(parseInt(populacao) < 0){
+         setMsg(true)
+      }else if(date !== new Date()){
+         setMsgData(true)
       } else {
         setMsgErro(false);
-        setMsg(true);
+        
         const newPlaneta = new Planeta(
           nome,
           natureza,
@@ -219,6 +224,7 @@ export default function Form({ route }) {
     setTitulo("");
     setSisSolar("");
     setPopulacao("");
+  
   };
 
   return (
@@ -338,6 +344,8 @@ export default function Form({ route }) {
           />
         </View>
         {msgErro ? <Text style={styles.erro}>Preencha todos os campos</Text> : <Text></Text>}
+        {msg ? <Text style={styles.erro}>População não pode ser menor que 0</Text> : <Text></Text>}
+        {msgData ? <Text style={styles.erro}>A data não pode ser maior que o dia de hoje.</Text> : <Text></Text>}
         <TouchableOpacity style={styles.button} onPress={handleUserAction}>
           <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
         </TouchableOpacity>

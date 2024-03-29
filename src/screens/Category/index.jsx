@@ -22,11 +22,11 @@ export default function Category() {
  
      <View style={styles.container}>
      <Text style={styles.texto}> Linguagens conhecidas :
-     HTML
-     CSS
-     JavaScript
-     React
-     React Native </Text>
+     HTML,
+     CSS,
+     JavaScript,
+     React,
+     React Native. </Text>
     
      </View>
  
