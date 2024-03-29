@@ -28,7 +28,7 @@
 <p>Detalhes = pagina de detalhamento</p>
 <p>SobreMim = pagina do desenvolvedor</p>
 
-Bibliotecas Utilizadas:
+<h1>Bibliotecas Utilizadas:</h1>
 
 
 ##Inputs de cor:
