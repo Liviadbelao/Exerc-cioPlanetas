@@ -17,7 +17,7 @@ export default function Home() {
      <Text style={styles.text}>Liste os planetas que você irá navegar e olhe os planetas já determinado.</Text>
      <Text style={styles.text}>Nessa sua jornada ao sistema solar com com a sua nave de apoio.</Text>
      </View>
-     <Image source={require('../../../assets/pngtree-ufo-spacecraft-element-of-technology-c4d-decorative-elements-element3d-png-image_4071471-removebg-preview.png')} width={10} height={10}/>
+     <Image source={require('../../../assets/pngtree-ufo-spacecraft-element-of-technology-c4d-decorative-elements-element3d-png-image_4071471-removebg-preview.png')} width={10} height={10} style={{marginRight:10}}/>
      <View style={styles.box}>
      <Text style={styles.text}>Essa é a sua nave espacial, o nome dela é belinha.</Text>
      <Text style={styles.text}>Escolha seu trajeto com consciência e liste os planetas escolhidos na aba "Cadastrar"!</Text>
