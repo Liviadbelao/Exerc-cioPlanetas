@@ -44,8 +44,8 @@ export default function Detalhes({ route }) {
               <View>
         <Text style={styles.text}>Detalhes do Planeta:</Text>
         <View style={{flexDirection:'row',height:'20%'}}>
-        <View style={{ width:'40%', borderRadius:'100%', backgroundColor: data.corSecundaria, marginTop:3,}}></View>
-        <View style={{ width:'40%', borderRadius:'100%', backgroundColor: data.corPrimaria}}></View>
+        <View style={{ width:'40%', borderRadius:100, backgroundColor: data.corSecundaria, marginTop:3,}}></View>
+        <View style={{ width:'40%', borderRadius:100, backgroundColor: data.corPrimaria}}></View>
         </View>
         <Text style={styles.text}>Nome: {data.nome}</Text>
         <Text style={styles.text}>Recursos Naturais: {data.natureza}</Text>

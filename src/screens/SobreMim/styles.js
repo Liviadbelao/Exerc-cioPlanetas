@@ -6,12 +6,13 @@ const styles = StyleSheet.create({
         textAlign: "center",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "black"
+        backgroundColor: "black",
+        marginBottom:0
     },
 
     img: {
         marginTop: 20,
-        borderRadius: '100%',
+        borderRadius: 100,
         margin: 'auto',
         borderColor: "#EE82EE",
         borderWidth: 3,

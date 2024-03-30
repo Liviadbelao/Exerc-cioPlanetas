@@ -46,7 +46,7 @@ export default function ListaPlanetas() {
                    shadowRadius: 32,
                    elevation: 10,}} key={planeta.id}>
                     <View>
-                    <Image source={require('../../../assets/Croquis_dibujados_a_mano_del_planeta_saturno_en_monocromo___Vector_Premium-removebg-preview.png')} style={styles.image}/>
+                   {/*  <Image source={require('../../../assets/Croquis_dibujados_a_mano_del_planeta_saturno_en_monocromo___Vector_Premium-removebg-preview.png')} style={styles.image}/> */}
                   <Text style={styles.text}>{planeta.nome}</Text>
                   <TouchableOpacity
                   style={styles.button}
