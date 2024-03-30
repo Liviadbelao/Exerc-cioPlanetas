@@ -114,7 +114,7 @@ export default function Form({ route }) {
         setMsgErro(true);
       }else if(parseInt(populacao) < 0){
          setMsg(true)
-      }else if(date !== new Date()){
+      }else if(date > new Date()){
          setMsgData(true)
       } else {
         setMsgErro(false);
@@ -260,6 +260,7 @@ export default function Form({ route }) {
               placeholder="Digite a quantidade de população"
               onChangeText={setPopulacao}
               value={populacao}
+              keyboardType="numeric"
               placeholderTextColor={'#D3D3D3'}
             />
           </View>
@@ -271,7 +272,7 @@ export default function Form({ route }) {
               placeholder="Digite a galxia"
               onChangeText={setGalaxia}
               value={galaxia}
-              keyboardType="numeric"
+              
               placeholderTextColor={'#D3D3D3'}  
             />
           </View>

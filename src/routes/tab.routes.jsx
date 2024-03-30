@@ -2,8 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
 
 import Home from "../screens/Home";
-import Profile from "../screens/Profile";
-import Category from "../screens/Category";
+import Detalhes from "../screens/Detalhes";
+import SobreMim from '../screens/SobreMim'
 import Form from "../screens/Form";
 import ListaPlanetas from '../screens/ListaPlanetas'
 import { mapas } from "../data/PlanetasLista";
@@ -57,7 +57,7 @@ const TabRoutes = () => {
         tabBarActiveTintColor: "#A020F0",
         tabBarInactiveTintColor: "#131313",
       }} />
-      <Tab.Screen name="Profile" component={Profile} initialParams={{ data: mapas }}
+      <Tab.Screen name="Detalhes" component={Detalhes} initialParams={{ data: mapas }}
           options={{
             tabBarIcon: ({ focused }) => (
               <Feather
@@ -73,7 +73,7 @@ const TabRoutes = () => {
               display: 'none',
             }
           }}/>
-      <Tab.Screen name="Category" component={Category}
+      <Tab.Screen name="SobreMim" component={SobreMim}
       options={{
             tabBarIcon: ({ focused }) => (
               <Feather

@@ -5,7 +5,7 @@ import styles from "./styles";
 
 import listaPlanetas from '../../models/Planeta/Planetas'
 
-export default function Profile({ route }) {
+export default function Detalhes({ route }) {
   const navigation = useNavigation();
   const { data } = route.params;
 
@@ -31,7 +31,6 @@ export default function Profile({ route }) {
       <View style={{ borderColor: data.corSecundaria,
          padding:10,
           borderRadius:10,
-          height:'50%',
            marginTop:10,
             borderWidth:3,
             backgroundColor: 'rgba(255, 255, 255, 0.3)',
