@@ -10,7 +10,7 @@ const image = '../../../assets/download (4).jpg';
 export default function ListaPlanetas() {
 
   const navigation = useNavigation();
-
+  const isFocused = useIsFocused();
   const [allPlanetas, setAllPlanetas] = useState([]);
 
   useEffect(() => {
@@ -39,6 +39,7 @@ export default function ListaPlanetas() {
                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
                    borderRadius: 16,
                    padding: 24,
+                
                    shadowColor: 'rgba(31, 38, 135, 0.37)',
                    shadowOffset: { width: 0, height: 8 },
                    shadowOpacity: 1,

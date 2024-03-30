@@ -1,8 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../screens/Home";
-import Profile from "../screens/Profile";
-import Category from "../screens/Category";
+import Detalhes from "../screens/Detalhes";
+import SobreMim from '../screens/SobreMim';
+import ListaPlanetas from "../screens/ListaPlanetas";
 import Form from "../screens/Form";
 
 const Stack = createNativeStackNavigator();
@@ -11,9 +12,10 @@ const StackRoutes = () => {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Detalhes" component={Detalhes} />
         <Stack.Screen name="Form" component={Form} />
-        <Stack.Screen name="Category" component={Category} />
+        <Stack.Screen name="SobreMim" component={SobreMim} />
+        <Stack.Screen name="ListaPlanetas" component={ListaPlanetas} />
       </Stack.Navigator>
     );
   };
