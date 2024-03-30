@@ -27,6 +27,7 @@ export default function Form({ route }) {
   const [nome, setNome] = useState("");
   const [natureza, setNatureza] = useState("");
   const [populacao, setPopulacao] = useState("");
+  const [humanos, setHumanos] = useState("")
   const [galaxia, setGalaxia] = useState("");
   const [sisSolar, setSisSolar] = useState("");
   const [coordenadas, setCoordenadas] = useState("");
@@ -70,6 +71,7 @@ export default function Form({ route }) {
       setNatureza(planeta.natureza);
       setDate(new Date());
       setPopulacao(planeta.populacao);
+      setPopulacao(planeta.humanos);
       setGalaxia(planeta.galaxia);
       setSisSolar(planeta.sisSolar);
       setCoordenadas(planeta.coordenadas);
@@ -91,6 +93,7 @@ export default function Form({ route }) {
         natureza,
         date,
         populacao,
+        humanos,
         galaxia,
         sisSolar,
         coordenadas,
@@ -105,25 +108,30 @@ export default function Form({ route }) {
         nome == "" ||
         natureza == "" ||
         populacao == "" ||
+        humanos == "" ||
         galaxia == "" ||
         sisSolar == "" ||
         coordenadas == "" ||
         governante == "" ||
-        titulo == ""
+        titulo == "" || 
+        corPrimaria== "#000000"||
+        corSecundaria== "#000000"
       ) {
         setMsgErro(true);
-      }else if(parseInt(populacao) < 0){
+      }else if(parseInt(populacao) < 0 || parseInt(humanos)<0){
          setMsg(true)
       }else if(date > new Date()){
          setMsgData(true)
       } else {
         setMsgErro(false);
-        
+        setMsg(false)
+        setMsgData(false)
         const newPlaneta = new Planeta(
           nome,
           natureza,
           date,
           populacao,
+          humanos,
           galaxia,
           sisSolar,
           coordenadas,
@@ -222,6 +230,7 @@ export default function Form({ route }) {
     setGalaxia("");
     setGovernante("");
     setTitulo("");
+    setHumanos("")
     setSisSolar("");
     setPopulacao("");
   
@@ -264,6 +273,17 @@ export default function Form({ route }) {
               placeholderTextColor={'#D3D3D3'}
             />
           </View>
+          <View style={styles.box}>
+            <Icon style={styles.iconStyle} name="account-multiple-plus"></Icon>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite a quantidade de humanos"
+              onChangeText={setHumanos}
+              value={humanos}
+              keyboardType="numeric"
+              placeholderTextColor={'#D3D3D3'}
+            />
+          </View>
           <Text style={styles.text}>Localização planeta:</Text>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="star-circle-outline"></Icon>
@@ -293,6 +313,7 @@ export default function Form({ route }) {
               placeholder="Digite as coordenadas"
               onChangeText={setCoordenadas}
               value={coordenadas}
+              maxLength={9}
               keyboardType="numeric"
               placeholderTextColor={'#D3D3D3'}
             />
@@ -344,8 +365,8 @@ export default function Form({ route }) {
             style={styles.cor}
           />
         </View>
-        {msgErro ? <Text style={styles.erro}>Preencha todos os campos</Text> : <Text></Text>}
-        {msg ? <Text style={styles.erro}>População não pode ser menor que 0</Text> : <Text></Text>}
+        {msgErro ? <Text style={styles.erro}>Preencha todos os campos, incluindo os de cores.</Text> : <Text></Text>}
+        {msg ? <Text style={styles.erro}>População nem a população humana podem ser menor que 0</Text> : <Text></Text>}
         {msgData ? <Text style={styles.erro}>A data não pode ser maior que o dia de hoje.</Text> : <Text></Text>}
         <TouchableOpacity style={styles.button} onPress={handleUserAction}>
           <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>

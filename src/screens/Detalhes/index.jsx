@@ -51,6 +51,7 @@ export default function Detalhes({ route }) {
         <Text style={styles.text}>Recursos Naturais: {data.natureza}</Text>
         <Text style={styles.text}>Data de Conquista: {new Date(data.data).toLocaleDateString()}</Text>
         <Text style={styles.text}>População: {data.populacao}</Text>
+        <Text style={styles.text}>População humana: {data.humanos}</Text>
         <Text style={styles.text}>Galxia: {data.galaxia}</Text>
         <Text style={styles.text}>Sistema Solar: {data.sisSolar}</Text>
         <Text style={styles.text}>Coordenadas: {data.coordenadas}</Text>
