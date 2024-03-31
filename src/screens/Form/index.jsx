@@ -65,7 +65,7 @@ export default function Form({ route }) {
   };
 
   useEffect(() => {
-    console.log("Received parameters:", planeta, edit);
+
     if (edit) {
       setNome(planeta.nome);
       setNatureza(planeta.natureza);
@@ -113,15 +113,15 @@ export default function Form({ route }) {
         sisSolar == "" ||
         coordenadas == "" ||
         governante == "" ||
-        titulo == "" || 
-        corPrimaria== "#000000"||
-        corSecundaria== "#000000"
+        titulo == "" ||
+        corPrimaria == "#000000" ||
+        corSecundaria == "#000000"
       ) {
         setMsgErro(true);
-      }else if(parseInt(populacao) < 0 || parseInt(humanos)<0){
-         setMsg(true)
-      }else if(date > new Date()){
-         setMsgData(true)
+      } else if (parseInt(populacao) < 0 || parseInt(humanos) < 0) {
+        setMsg(true)
+      } else if (date > new Date()) {
+        setMsgData(true)
       } else {
         setMsgErro(false);
         setMsg(false)
@@ -201,8 +201,8 @@ export default function Form({ route }) {
     const hexColor = `#${Math.round(r)
       .toString(16)
       .padStart(2, "0")}${Math.round(g)
-      .toString(16)
-      .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
+        .toString(16)
+        .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
 
     setCorPrimaria(hexColor);
   };
@@ -214,8 +214,8 @@ export default function Form({ route }) {
     const hexColor = `#${Math.round(r)
       .toString(16)
       .padStart(2, "0")}${Math.round(g)
-      .toString(16)
-      .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
+        .toString(16)
+        .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
 
     setCorSecundaria(hexColor);
   };
@@ -233,7 +233,7 @@ export default function Form({ route }) {
     setHumanos("")
     setSisSolar("");
     setPopulacao("");
-  
+
   };
 
   return (
@@ -292,8 +292,8 @@ export default function Form({ route }) {
               placeholder="Digite a galxia"
               onChangeText={setGalaxia}
               value={galaxia}
-              
-              placeholderTextColor={'#D3D3D3'}  
+
+              placeholderTextColor={'#D3D3D3'}
             />
           </View>
           <View style={styles.box}>
@@ -352,18 +352,19 @@ export default function Form({ route }) {
               onChange={onChange}
             />
           )}
+          <View style={styles.boxColor}>
+            <ColorPicker
+              onColorChange={onColorChangePrimaryColor}
+              sliderComponent={Slider}
+              style={styles.cor}
+            />
 
-          <ColorPicker
-            onColorChange={onColorChangePrimaryColor}
-            sliderComponent={Slider}
-            style={styles.cor}
-          />
-
-          <ColorPicker
-            onColorChange={onColorChangeSecundColor}
-            sliderComponent={Slider}
-            style={styles.cor}
-          />
+            <ColorPicker
+              onColorChange={onColorChangeSecundColor}
+              sliderComponent={Slider}
+              style={styles.cor}
+            />
+          </View>
         </View>
         {msgErro ? <Text style={styles.erro}>Preencha todos os campos, incluindo os de cores.</Text> : <Text></Text>}
         {msg ? <Text style={styles.erro}>População nem a população humana podem ser menor que 0</Text> : <Text></Text>}
@@ -371,7 +372,7 @@ export default function Form({ route }) {
         <TouchableOpacity style={styles.button} onPress={handleUserAction}>
           <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
         </TouchableOpacity>
-     
+
 
         {isUpdate && (
           <TouchableOpacity onPress={clearInputs}>

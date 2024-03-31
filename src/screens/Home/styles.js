@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
     backgroundColor: "black"
   },
 
-
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-    zIndex: 0,
+  img:{
+   width:'90%',
+   marginBottom:30,
+   
   },
+
   box: {
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
     borderRadius: 16,
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     zIndex: 10,
     marginTop: -20,
-  
-    width: '80%',
+   margin:'auto',
+    width: '85%',
     padding: 10,
     borderRadius: 10,
   },

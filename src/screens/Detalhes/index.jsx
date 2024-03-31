@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import moment from 'moment';
 
 import styles from "./styles";
 
@@ -49,7 +50,8 @@ export default function Detalhes({ route }) {
         </View>
         <Text style={styles.text}>Nome: {data.nome}</Text>
         <Text style={styles.text}>Recursos Naturais: {data.natureza}</Text>
-        <Text style={styles.text}>Data de Conquista: {new Date(data.data).toLocaleDateString()}</Text>
+        <Text style={styles.text}>Data de Conquista: {moment(data.data).format('DD/MM/YYYY')}</Text>
+
         <Text style={styles.text}>População: {data.populacao}</Text>
         <Text style={styles.text}>População humana: {data.humanos}</Text>
         <Text style={styles.text}>Galxia: {data.galaxia}</Text>

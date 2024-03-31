@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container2: {
-        flex: 1,
+        
         textAlign: "center",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "black",
+        
         marginBottom:0
     },
 
@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
         borderColor: "#EE82EE",
         borderWidth: 3,
 
+    },
+    scroll:{
+        flex: 1,
+        backgroundColor: "black",
     },
     texto: {
         color: 'white',

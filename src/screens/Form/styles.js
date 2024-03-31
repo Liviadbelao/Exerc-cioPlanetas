@@ -7,17 +7,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  boxColor:{
+     flexDirection:'row',
+     width: "100%",
+    height: '90%',
+    marginLeft:60
+  },
 
   inputBox: {
-    width: "90%",
+    width: "100%",
     marginBottom: 20,
     flex: 1,
     margin: 'auto',
-    shadowColor: 'rgba(31, 38, 135, 0.37)',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 1,
-    shadowRadius: 32,
-    elevation: 10,
+   
     padding: 10,
     borderRadius: 10
   },
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
   },
   text1: {
     color: 'white',
-    marginTop: 100,
+    marginTop: 50,
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -74,7 +76,8 @@ const styles = StyleSheet.create({
   },
   box: {
     flexDirection: "row",
-  }
+  },
+
 });
 
 export default styles;
