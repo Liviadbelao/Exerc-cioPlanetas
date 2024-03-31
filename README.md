@@ -9,11 +9,11 @@
 <img src='./assets/pagSobreMIm.png'/>
 <h1 aling='center'> Página Home</h1>
 <img src='./assets/pagHomePlanetas.png'/>
-<img src='./assets/pagHomePlanetas2.png'/>
+<img src='./assets/pagHome2.png'/>
 <h1 aling='center'> Formulario</h1>
 <img src='./assets/inputsPlanetas.png'/>
 <h1>Lista de planetas</h1>
-<img src='./assets/pagCategoryPlaneta.png'/>
+<img src='./assets/categoriasPlanetas.png'/>
 <h1>Detalhamento de planetas</h1>
 <img src='./assets/detalhesPlanetas.png'/>
 ## Tecnologias Utilizadas: Rect Native, Biblioteca Botton Tab, Androi Studium, VS code, JavaScript, CSS.
