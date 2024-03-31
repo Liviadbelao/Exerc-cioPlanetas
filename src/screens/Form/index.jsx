@@ -233,7 +233,7 @@ export default function Form({ route }) {
     setHumanos("")
     setSisSolar("");
     setPopulacao("");
-
+    
   };
 
   return (
