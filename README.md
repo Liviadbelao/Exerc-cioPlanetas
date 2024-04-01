@@ -19,10 +19,10 @@
 ## Tecnologias Utilizadas: Rect Native, Biblioteca Botton Tab, Androi Studium, VS code, JavaScript, CSS.
 
 
-## Descrição: Nesse aplicativo permite o usuário a fazer uma lista de planeta dentro do contexto em que ele é um navegador e quer fazer uma lista de planetas para navegar.
+## Descrição: Esse aplicativo permite o usuário a fazer uma lista de planeta dentro do contexto em que ele é um navegador e quer fazer uma lista de planetas para navegar.
 
 <h1>Explicação das pastas</h1>
-<p>ListaPlanetas = pagina de categorias de planetas</p>
+<p>ListaPlanetas = pagina de lista de planetas</p>
 <p>Home = pagina home</p>
 <p>Form = pagina de cadastro</p>
 <p>Detalhes = pagina de detalhamento</p>
