@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
 import { ColorPicker } from "react-native-color-picker";
-
+import Inputs from '../../components/Inputs'
 import Slider from "@react-native-community/slider";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import styles from "./styles";
@@ -18,6 +18,7 @@ import Title from "../../components/Title";
 import listaPlanetas from "../../models/Planeta/Planetas";
 import Planeta from "../../models/Planeta/Planeta";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Input from "../../components/Inputs";
 
 const image = "../../../assets/download (3).jpg";
 export default function Form({ route }) {
@@ -233,7 +234,7 @@ export default function Form({ route }) {
     setHumanos("")
     setSisSolar("");
     setPopulacao("");
-    
+
   };
 
   return (
@@ -244,100 +245,50 @@ export default function Form({ route }) {
           <Text style={styles.text1}>Informações do planeta:</Text>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="brightness-1"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite o nome do Planeta"
-              onChangeText={setNome}
-              value={nome}
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite o nome do planeta"} oc={setNome} valor={nome} kt={'text'} />
           </View>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="pine-tree"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite os recursos naturais do planeta"
-              onChangeText={setNatureza}
-              value={natureza}
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite os recursos naturais do planeta"} oc={setNatureza} valor={natureza} kt={'text'} />
           </View>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="account-multiple-plus"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite a quantidade de população"
-              onChangeText={setPopulacao}
-              value={populacao}
-              keyboardType="numeric"
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite a população"} oc={setPopulacao} valor={populacao} kt={'numeric'} />
           </View>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="account-multiple-plus"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite a quantidade de humanos"
-              onChangeText={setHumanos}
-              value={humanos}
-              keyboardType="numeric"
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite a quantidade de humanos"} oc={setHumanos} valor={humanos} kt={'numeric'} />
           </View>
           <Text style={styles.text}>Localização planeta:</Text>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="star-circle-outline"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite a galxia"
-              onChangeText={setGalaxia}
-              value={galaxia}
 
-              placeholderTextColor={'#D3D3D3'}
-            />
+            <Input ph={"Digite uma galaxia"} oc={setGalaxia} valor={galaxia} kt={'text'} />
           </View>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="white-balance-sunny"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite o sistema solar"
-              onChangeText={setSisSolar}
-              value={sisSolar}
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite o sistema solar"} oc={setSisSolar} valor={sisSolar} kt={'text'} />
           </View>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="code-equal"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite as coordenadas"
-              onChangeText={setCoordenadas}
-              value={coordenadas}
-              maxLength={9}
-              keyboardType="numeric"
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite as coordenadas"} oc={setCoordenadas} valor={coordenadas} kt={'numeric'} />
           </View>
           <Text style={styles.text}>Governo:</Text>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="crown"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite o nome do governante"
-              onChangeText={setGovernante}
-              value={governante}
-              placeholderTextColor={'#D3D3D3'}
-            />
+
+            <Input ph={"Digite o nome governante"} oc={setGovernante} valor={governante} kt={'text'} />
           </View>
           <View style={styles.box}>
             <Icon style={styles.iconStyle} name="account"></Icon>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite o titulo"
-              placeholderTextColor={'#D3D3D3'}
-              onChangeText={setTitulo}
-              value={titulo}
-            />
+
+            <Input ph={"Digite o titulo"} oc={setTitulo} valor={titulo} kt={'text'} />
           </View>
           <TouchableOpacity style={styles.data} onPress={showDatepicker}>
             <Text style={styles.text}>Escolha a data</Text>
